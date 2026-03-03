@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Autism Screening</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/clinical.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Early Autism Screening</h1>
+    <p class="subtitle">Answer based on your child’s behavior</p>
+
+    <form method="POST">
+        <input type="text" name="child_name" placeholder="Child Name" required>
+
+        {% for q in questions %}
+        <div class="card">
+            <p>{{ loop.index }}. {{ q }}</p>
+            <label><input type="radio" name="q{{ loop.index0 }}" value="yes" required> Yes</label>
+            <label><input type="radio" name="q{{ loop.index0 }}" value="no"> No</label>
+        </div>
+        {% endfor %}
+
+        <button type="submit">Submit Screening</button>
+    </form>
+
+    <footer>
+        ⚠️ This is an early screening tool, not a medical diagnosis.
+    </footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Screening Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/clinical.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>Screening Result</h1>
+
+    <!-- STAT CARDS -->
+    <div class="stats">
+        <div class="stat-card">
+            <div class="stat-icon">📊</div>
+            <h3>Total Score</h3>
+            <p>{{ score }}</p>
+        </div>
+
+        <div class="stat-card">
+             <div class="stat-icon">⚠️</div>
+             <h3>Risk Level</h3>
+             <p>{{ risk }}</p>
+        </div>
+    </div>
+
+    <!-- RESULT DETAILS -->
+    <div class="result-box">
+        <h3>📋Stored Screening Records</h3>
+
+        <table>
+            <tr>
+                <th>Child Name</th>
+                <th>Score</th>
+                <th>Risk Level</th>
+            </tr>
+            {% for r in records %}
+            <tr>
+                <td>{{ r.child_name }}</td>
+                <td>{{ r.total_score }}</td>
+                <td>{{ r.risk_level }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <footer>
+            ⚠️ This result is for screening purposes only. Please consult a medical professional.
+        </footer>
+    </div>
+
+    <a href="/">← Back</a>
+
+</div>
+
+</body>
+</html>
