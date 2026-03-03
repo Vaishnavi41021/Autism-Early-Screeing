@@ -103,7 +103,7 @@ Autism-Screening/
 1. Clone the repository:
 
 ```
-git clone https://github.com/your-username/autism-screening.git
+https://github.com/Vaishnavi41021/Autism-Early-Screeing.git
 ```
 
 2. Navigate to the project folder:
